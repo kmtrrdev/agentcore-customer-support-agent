@@ -1,0 +1,62 @@
+default_agent: customer_support_agent
+agents:
+  customer_support_agent:
+    name: customer_support_agent
+    language: python
+    node_version: '20'
+    entrypoint: C:/Users/Moham/Downloads/cd14763-project-starter-main/cd14763-project-starter-main/starter/main.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: none
+    source_path: C:\Users\Moham\Downloads\cd14763-project-starter-main\cd14763-project-starter-main\starter
+    aws:
+      execution_role: arn:aws:iam::<AWS_ACCOUNT_ID>:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-aa96c3a063
+      execution_role_auto_create: false
+      account: '<AWS_ACCOUNT_ID>'
+      region: us-east-1
+      ecr_repository: <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-customer_support_agent
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: null
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: customer_support_agent-GmLOnR2uXa
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:<AWS_ACCOUNT_ID>:runtime/customer_support_agent-GmLOnR2uXa
+      agent_session_id: a9fcbf54-3ccf-4d13-8842-6f847193cf63
+    codebuild:
+      project_name: bedrock-agentcore-customer_support_agent-builder
+      execution_role: arn:aws:iam::<AWS_ACCOUNT_ID>:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-1-aa96c3a063
+      source_bucket: bedrock-agentcore-codebuild-sources-<AWS_ACCOUNT_ID>-us-east-1
+    memory:
+      mode: STM_ONLY
+      memory_id: customer_support_agent_mem-zGSscn4Pg2
+      memory_arn: arn:aws:bedrock-agentcore:us-east-1:<AWS_ACCOUNT_ID>:memory/customer_support_agent_mem-zGSscn4Pg2
+      memory_name: customer_support_agent_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: true
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false
